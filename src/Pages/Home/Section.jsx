@@ -48,6 +48,107 @@ const Section = () => {
   </div>
 </div>
 
+<div className="mt-5">
+    <h1 className="text-center text-2xl">
+    SMART Developer provides Web Services for most of the small to large organizations. Our <br />
+     technical staff are well qualified and skilled to make your goals.
+    </h1>
+
+<div className="mt-8 gap-5 grid grid-cols-3">
+<div className="card  card-compact w-96 bg-base-100 shadow-xl">
+<h2 className="card-title">Web Designing</h2>
+  <figure><img src="https://i.ibb.co/gFpyW5g/WD-300x137.jpg" alt="Shoes" className="w-full" /></figure>
+  <div className="card-body">
+    <p>Web Designing is our expertise. We develop in a number of technologies including Microsoft Framework, JavaScript Framework, Mobile Design, Custom Apps and more. <br />
+    <br />
+
+     We are here to help you in your business growth.</p>
+    <div className="card-actions justify-end">
+    </div>
+  </div>
+</div>
+
+
+<div className="card  card-compact w-96 bg-base-100 shadow-xl">
+<h2 className="card-title">Web CMS</h2>
+  <figure><img src="https://i.ibb.co/JzhyGww/WebCMS.png" alt="Shoes" className="w-[70%] " /></figure>
+  <div className="card-body">
+    <p>Web CMS Designing is our expertise. We develop in a number of technologies including Microsoft Framework, JavaScript Framework, Mobile Design, Custom Apps and more.
+    <br />
+    <br />
+      We are here to help you in your business growth. </p>
+    <div className="card-actions justify-end">
+    </div>
+  </div>
+</div>
+<div className="card  card-compact w-96 bg-base-100 shadow-xl">
+<h2 className="card-title">Web Reengineering</h2>
+  <figure><img src="https://i.ibb.co/zFqZv2W/Reengine.jpg" alt="Shoes" className="w-[60%] " /></figure>
+  <div className="card-body">
+    <p>Web Reengineering is our expertise. We develop in a number of technologies including Microsoft Framework, JavaScript Framework, Mobile Design, Custom Apps and more.
+<br /><br />
+We are here to help you in your business growth. .</p>
+    <div className="card-actions justify-end">
+    </div>
+  </div>
+</div>
+
+
+
+{/* 3 done */}
+<div className="card  card-compact w-96 bg-base-100 shadow-xl">
+<h2 className="card-title">Graphic Designing</h2>
+  <figure><img src="https://i.ibb.co/cbbVRJ5/GDesign.jpg" alt="Shoes" className="w-[100%] " /></figure>
+  <div className="card-body">
+    <p>Graphic Designing is our expertise. We develop in a number of technologies including Microsoft Framework, JavaScript Framework, Mobile Design, Custom Apps and more.
+
+We are here to help you in your business growth. </p>
+    <div className="card-actions justify-end">
+    </div>
+  </div>
+</div>
+
+
+<div className="card  card-compact w-96 bg-base-100 shadow-xl">
+<h2 className="card-title">E-Commerce</h2>
+  <figure><img src="https://i.ibb.co/gPzX7wX/EC.jpg" alt="Shoes" className="w-[100%] " /></figure>
+  <div className="card-body">
+    <p>Web Reengineering is our expertise. We develop in a number of technologies including Microsoft Framework, JavaScript Framework, Mobile Design, Custom Apps and more.
+<br /><br />
+We are here to help you in your business growth. .</p>
+    <div className="card-actions justify-end">
+    </div>
+  </div>
+</div>
+
+
+<div className="card  card-compact w-96 bg-base-100 shadow-xl">
+<h2 className="card-title">Custom Development</h2>
+  <figure><img src="https://i.ibb.co/cgJNjbB/Custom.jpg" alt="Shoes" className="w-[100%] " /></figure>
+  <div className="card-body">
+    <p>Custom Development is our expertise. We develop in a number of technologies including Microsoft Framework, JavaScript Framework, Mobile Design, Custom Apps and more. 
+We are here to help you in your business growth. .</p>
+    <div className="card-actions justify-end">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+
 </div>
 
 
