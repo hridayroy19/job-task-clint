@@ -82,6 +82,16 @@ const Navbar = () => {
           >
             Contact
           </NavLink>
+      <NavLink
+            to="/deshbord"
+            className={({ isActive, isPending })  =>
+              isPending ? "pending" : isActive ? "text-[#FF444A] underline " : ""
+            }
+            
+          >
+            
+            Deshbord
+          </NavLink>
     </ul>
   </div>
   <div className="navbar-end">

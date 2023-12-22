@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { IoHome } from "react-icons/io5";
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../Provider/Provider";
+import { BsListTask } from "react-icons/bs";
+import { LiaCreditCardSolid } from "react-icons/lia";
 const Deshbord = () => {
   const [open, setOpen] = useState(false);
 
@@ -42,6 +44,7 @@ console.log(user);
           </h1>
         </div>
         <ul className=" pt-6">
+        <Link to={"/"}>
           <li className="flex mt-4 ml-5  gap-x-4 items-center">
             <h1 className={` cursor-pointer duration-500 `}>
               <IoHome />
@@ -52,13 +55,15 @@ console.log(user);
                 !open && "scale-0"
               } `}
             >
-              <Link to={"/"}> Home</Link>{" "}
+              Home
             </h1>
           </li>
 
+          </Link>
+          <Link to={"create"}>
           <li className="flex mt-4 ml-5  gap-x-4 items-center">
             <h1 className={` cursor-pointer duration-500 `}>
-              <IoHome />
+              <BsListTask />
             </h1>
 
             <h1
@@ -66,13 +71,15 @@ console.log(user);
                 !open && "scale-0"} `}
             >
 
-              <Link to={"create"}>create new tasks </Link>
+             create new tasks
             </h1>
           </li>
+          </Link>
 
+          <Link to={"previous"}> 
           <li className="flex mt-4 ml-5  gap-x-4 items-center">
             <h1 className={` cursor-pointer duration-500 `}>
-              <IoHome />
+              <LiaCreditCardSolid />
             </h1>
 
             <h1
@@ -80,12 +87,34 @@ console.log(user);
                 !open && "scale-0"
               } `}
             >
-              <Link to={"previous"}> Previous tasks</Link>
+               Previous tasks
             </h1>
           </li>
+         </Link>
+
+          <Link to={"update"}> 
+          <li className="flex mt-4 ml-5  gap-x-4 items-center">
+            <h1 className={` cursor-pointer duration-500 `}>
+              <LiaCreditCardSolid />
+            </h1>
+
+            <h1
+              className={` text-white origin-left  font-medium text-xl duration-300 ${
+                !open && "scale-0"
+              } `}
+            >
+              TODO LIST
+            </h1>
+          </li>
+         </Link>
         </ul>
       </div>
+
+      
       <div className=" p-7 bg-slate-200 w-full mx-auto text-2xl font-semibold ">
+        <h2>
+          hello 
+        </h2>
         <Outlet></Outlet>
       </div>
       

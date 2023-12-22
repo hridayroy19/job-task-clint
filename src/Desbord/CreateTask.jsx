@@ -55,22 +55,11 @@ const CreateTask = () => {
             });
 
 
-
-
-
-
-
-
-
-
     }
 
 
-
-
-
     return (
-        <div>
+        <div data-aos="zoom-out-down">
               <form onSubmit={handelAddtasl}>
         <div className="text-center bg-blue-200 p-10 mb-14 mt-11 ">
           <h2 className="text-2xl font-bold"> Crate a New Task </h2>

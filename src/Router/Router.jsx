@@ -10,6 +10,9 @@ import DeshHome from "../Desbord/Home";
 import CreateTask from "../Desbord/CreateTask";
 import Previous from "../Desbord/Previous";
 import PrivetRouter from "./PrivetRoute";
+import Contact from "../Pages/contact/Contact";
+import Update from "../Desbord/Update";
+// import Update from "../Desbord/Update";
 
 
 const Router = createBrowserRouter([
@@ -24,6 +27,11 @@ const Router = createBrowserRouter([
         {
           path:"/about",
           element:<PrivetRouter><About></About></PrivetRouter>
+        },
+        {
+
+          path:"/contact",
+          element:<Contact></Contact>
         }
 
       ],     
@@ -54,6 +62,10 @@ const Router = createBrowserRouter([
           path:"previous",
           element:<Previous></Previous>,
           loader:()=>fetch("http://localhost:5000/crateTask")
+        },
+        {
+          path:"update",
+          element:<Update></Update>
         }
       ]
     
