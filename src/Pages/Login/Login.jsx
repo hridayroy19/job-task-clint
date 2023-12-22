@@ -38,6 +38,7 @@ const Login = () => {
       .catch((error) => {
         console.erro(error);
       });
+      navigate("/");
   };
 
 

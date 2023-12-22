@@ -61,12 +61,13 @@ const Router = createBrowserRouter([
         {
           path:"previous",
           element:<Previous></Previous>,
-          loader:()=>fetch("http://localhost:5000/crateTask")
+          loader:()=>fetch("https://job-task-server-one-beta.vercel.app/crateTask")
         },
         {
           path:"update",
           element:<Update></Update>
-        }
+        },
+       
       ]
     
     }

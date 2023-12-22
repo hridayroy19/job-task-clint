@@ -4,6 +4,7 @@ import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../Provider/Provider";
 import { BsListTask } from "react-icons/bs";
 import { LiaCreditCardSolid } from "react-icons/lia";
+import { LuListTodo } from "react-icons/lu";
 const Deshbord = () => {
   const [open, setOpen] = useState(false);
 
@@ -95,7 +96,7 @@ console.log(user);
           <Link to={"update"}> 
           <li className="flex mt-4 ml-5  gap-x-4 items-center">
             <h1 className={` cursor-pointer duration-500 `}>
-              <LiaCreditCardSolid />
+              <LuListTodo/>
             </h1>
 
             <h1
@@ -107,6 +108,22 @@ console.log(user);
             </h1>
           </li>
          </Link>
+
+          {/* <Link to={"todo"}> 
+          <li className="flex mt-4 ml-5  gap-x-4 items-center">
+            <h1 className={` cursor-pointer duration-500 `}>
+              <LuListTodo/>
+            </h1>
+
+            <h1
+              className={` text-white origin-left  font-medium text-xl duration-300 ${
+                !open && "scale-0"
+              } `}
+            >
+              DropDown
+            </h1>
+          </li>
+         </Link> */}
         </ul>
       </div>
 

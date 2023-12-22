@@ -25,7 +25,7 @@ const CreateTask = () => {
         };
         console.log(newproduct);
 
-        fetch("http://localhost:5000/crateTask", {
+        fetch("https://job-task-server-one-beta.vercel.app/crateTask", {
             method: "POST",
             headers: {
               "content-type":"application/json",
@@ -122,7 +122,7 @@ const CreateTask = () => {
             </div>
 
             <div className="form-control w-1/2 ml-4 ">
-              <label className="label">
+              {/* <label className="label">
                 <span className="label-text">Priority</span>
               </label>
               <label className="input-group">
@@ -132,7 +132,27 @@ const CreateTask = () => {
                   name="priority"
                   className="input input-bordered bg-white text-black w-full "
                 />
-              </label>
+              </label> */}
+
+
+
+                              <label className="label">
+                                <span className="label-text text-white">
+                                    Priority
+                                </span>
+                            </label>
+                            <select name="priority" className="select select-bordered select-warning w-full">
+                                <option disabled selected>Select a Priority ?</option>
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+
+
+
+
+
+
             </div>
           </div>
           <div className="mt-4 ">
