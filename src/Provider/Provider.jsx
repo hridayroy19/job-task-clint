@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types */
-// import {  GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
-// import { createContext, useEffect, useState } from "react";
-// import { auth } from "../Config_file/Firebse";
 
-import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+
+import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile,  } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../Confil_file/firbase";
 // import { auth } from "../Confil_file/firbase";
@@ -41,25 +39,36 @@ const siginGoogle = () =>{
         return signInWithEmailAndPassword(auth ,email , password)
     }
 
-
-    
-
+    const updateUserProfile = (name, photo)=>{
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL:photo
+        })
+    };
 
     const logOut = () =>{
         return signOut(auth)
     }
-// user ache kih na 
 
-useEffect (()=>{
-const mxv = onAuthStateChanged(auth, (currentUesr)=>{
-    setUser(currentUesr);
-    setIsLoading(false);
-});
-return () =>{
-    return mxv();
-};
+  
+   
 
-},[]);
+
+useEffect(() => {
+    const unSubcribe = () => {
+        onAuthStateChanged(auth, cuser => {
+            setUser(cuser)
+            setIsLoading(false)
+        })
+    }
+    return unSubcribe();
+}, [])
+
+
+
+
+
+
 
 
 const values = {
@@ -69,6 +78,7 @@ const values = {
     user,
     isLoading,
     siginGoogle,
+    updateUserProfile
 
 }
 

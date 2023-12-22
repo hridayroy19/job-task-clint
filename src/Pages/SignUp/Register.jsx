@@ -4,7 +4,7 @@ import { AuthContext } from "../../Provider/Provider";
 
 
 const Register = () => {
-  const {  crateUser } = useContext(AuthContext);
+  const {  crateUser , updateUserProfile } = useContext(AuthContext);
 
 const navigate = useNavigate()
 
@@ -16,17 +16,29 @@ const navigate = useNavigate()
         const email = form.email.value;
         const password = form.password.value;
         const data ={
-          name ,
+          name,
           email,
           photo,
           password
         }
         console.log(data);
 
-      crateUser(data.email , data.password , data.name, data.photo)
+      crateUser(data.email ,data.name, data.password
+        , data.photo)
      .then(result =>{
       const loggedUser = result.user;
       console.log(loggedUser)
+
+      updateUserProfile(data.name , data.photo)
+      .then(()=>{
+        // send database information
+          const userInfo ={
+            name: data.name,
+              email: data.email ,
+              photo:data.photo        
+      }
+      console.log(userInfo);
+      })
       navigate("/")
 
     })}

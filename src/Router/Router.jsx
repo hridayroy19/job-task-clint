@@ -7,6 +7,9 @@ import About from "../Pages/About/About";
 import PrivetRoute from "./PrivetRoute";
 import Deshbord from "../Desbord/Deshbord";
 import DeshHome from "../Desbord/Home";
+import CreateTask from "../Desbord/CreateTask";
+import Previous from "../Desbord/Previous";
+import PrivetRouter from "./PrivetRoute";
 
 
 const Router = createBrowserRouter([
@@ -20,7 +23,7 @@ const Router = createBrowserRouter([
         },
         {
           path:"/about",
-          element:<PrivetRoute><About></About></PrivetRoute>
+          element:<PrivetRouter><About></About></PrivetRouter>
         }
 
       ],     
@@ -37,11 +40,20 @@ const Router = createBrowserRouter([
     // deshbor releted
     {
       path:"deshbord",
-      element:<Deshbord></Deshbord>,
+      element:<PrivetRoute><Deshbord></Deshbord></PrivetRoute>,
       children:[
         {
           path:"home",
           element:<DeshHome></DeshHome>
+        },
+        {
+          path:"create",
+          element:<CreateTask></CreateTask>
+        },
+        {
+          path:"previous",
+          element:<Previous></Previous>,
+          loader:()=>fetch("http://localhost:5000/crateTask")
         }
       ]
     

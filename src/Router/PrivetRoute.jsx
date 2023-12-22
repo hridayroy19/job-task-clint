@@ -1,21 +1,26 @@
+/* eslint-disable react/prop-types */
+
 
 import { useContext } from "react";
 import { AuthContext } from "../Provider/Provider";
 import { Navigate } from "react-router-dom";
 
+const PrivetRouter = ({children}) => {
 
-const PrivetRoute = ({children}) => {
-  const { user, loading } = useContext(AuthContext)
 
-if( loading){
-  return <div> <img src="https://i.ibb.co/2Kqz8p4/loading-icon-on-black-vector-24544990.jpg" className="mx-auto items-center h-[30vh] mt-8 " alt="" /></div>
+// console.log(location.pathname)
+
+    const { user,  isLoading,}=useContext(AuthContext);
+
+if( isLoading){
+    return <span className="loading loading-spinner text-info"></span>
 }
 
-if( !user?.email){
-    return <Navigate to={"/login"}></Navigate>
-}
 
-return children
+    if(user){
+        return children;
+    }
+    return <Navigate to={"/login"} ></Navigate>;
 };
 
-export default PrivetRoute;
+export default PrivetRouter;
