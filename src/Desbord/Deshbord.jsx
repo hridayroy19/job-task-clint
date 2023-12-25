@@ -109,29 +109,11 @@ console.log(user);
           </li>
          </Link>
 
-          {/* <Link to={"todo"}> 
-          <li className="flex mt-4 ml-5  gap-x-4 items-center">
-            <h1 className={` cursor-pointer duration-500 `}>
-              <LuListTodo/>
-            </h1>
-
-            <h1
-              className={` text-white origin-left  font-medium text-xl duration-300 ${
-                !open && "scale-0"
-              } `}
-            >
-              DropDown
-            </h1>
-          </li>
-         </Link> */}
         </ul>
       </div>
 
       
-      <div className=" p-7 bg-slate-200 w-full mx-auto text-2xl font-semibold ">
-        <h2>
-          hello 
-        </h2>
+      <div className=" p-7 bg-slate-200 w-full mx-auto text-2xl font-semibold ">      
         <Outlet></Outlet>
       </div>
       

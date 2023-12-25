@@ -17,6 +17,7 @@ import DragDrop from "../Desbord/DragDrop";
 // import Update from "../Desbord/Update";
 import IconBox from '../../public/test (1).png'
 import UpdateTask from "../Desbord/UpdateTask";
+import ErrorPage from "../Pages/Errorpage/Error";
 
 const TASKS = [
   {
@@ -76,28 +77,11 @@ const TASKS = [
   }
 ];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const Router = createBrowserRouter([
     {
       path:"/",
       element:<Main></Main>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
             path:"/",

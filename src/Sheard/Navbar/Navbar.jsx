@@ -71,7 +71,7 @@ const Navbar = () => {
             }
             
           >
-            About
+            Course
           </NavLink>
       <NavLink
             to="/contact"

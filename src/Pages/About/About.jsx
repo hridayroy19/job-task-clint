@@ -1,8 +1,9 @@
+import Section from "../Home/Section";
 
 const About = () => {
     return (
         <div>
-            hello
+          <Section></Section>
         </div>
     );
 };
