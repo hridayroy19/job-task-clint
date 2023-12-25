@@ -1,92 +1,116 @@
-import axios from "axios";
-import { useState } from "react";
-import toast from "react-hot-toast";
-import { useLoaderData } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/Provider";
+import { Link } from "react-router-dom";
+
 
 const Previous = () => {
-  const task = useLoaderData();
-  const [lodeuser, setLodeuser] = useState(task);
 
-  const handeldelet = (_id) => {
-    console.log("delet", _id);
-    axios
-      .delete(`https://job-task-server-one-beta.vercel.app/crateTask/${_id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
+    
+const { user } = useContext(AuthContext);
+console.log(user);
+const [allTask, setAlltask] = useState([]);
+const [selectedUserId, setSelectedUserId] = useState(null);
+console.log(allTask);
+const task = allTask.filter((task) => task._id === selectedUserId)
+console.log(task)
 
-        if (data.deletedCount > 0) {
-          toast.success("Successfully delete");
-          const remaining = lodeuser.filter((user) => user._id !== _id);
-          setLodeuser(remaining);
+useEffect(() => {
+  const url =`http://localhost:5000/crateTask?email=${user?.email}`;
+  fetch(url)
+    .then(res => res.json())
+    .then(task => {
+      setAlltask(task);
+    })
+}, [user?.email]);
+
+const handleDeletetask = (id) => {
+  console.log(id);
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      fetch(`http://localhost:5000/crateTask/${id}`,{
+            method: 'DELETE'
+      })
+      .then(res => res.json())
+      .then(task => {
+        if(task.deletedCount > 0){
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success"
+          });
+          const remaining = allTask?.filter((task) => task._id !== id);
+          setAlltask(remaining)
         }
-      });
+      })
+      
+    }
+  });
+  
   };
 
   return (
-            <div className="grid lg:grid-cols-3 grid-cols-1 py-6 gap-3 items-center ">
+    <div >
+    <h1 className="text-center my-12 uppercase font-bold text-3xl lg:5xl">Previous Task</h1>
+    <div className="overflow-x-auto bg-slate-200 ">
+      <table className="table w-full">
+        {/* head */}
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Deadlines</th>
+            <th>Priority</th>
+            <th>descriptions</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody className="">
+          {/* row  */}
+          {
+            allTask?.length && allTask.map((task,) => (
+              <tr key={task._id}>
+               
+                <td>
+                  {task.title}
+                </td>
+                <td>
+                  {task.deadlines}
 
-                {
+                </td>
+                <td>
+                  {task.priority}
+                </td>          
+                <td>
+                  {task.descriptions
+}
+                </td>                      
+                <td>
+                  <Link to={`updateTask/${task._id}`}><button className="btn  btn-outline"> update</button> </Link>
+                </td>
+                <td>
+                  <button onClick={() => handleDeletetask(task?._id)} className="btn btn-outline"> Delete </button>
+                </td>
+                <td>
+                  {task.price}
+                </td>
+              </tr>
+            ))
+          }
 
-                    task.map((task)=>
-                    <div key={task._id}  className=" card bg-slate-50 w-[400px]  text-primary-content">
-           <div className="card-body">
-             <h2 className="card-title text-black "> {task.title}</h2>
-             <p className="text-black"> { task.descriptions} </p>
-             <div className="card-actions flex justify-between">
-               <h3 className=" text-xl text-black">priority:{task.priority} </h3>
-               <h3 className=" text-xl text-black"> Date:{
-                     task.deadlines
-               } </h3>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-             </div>
-
-           <div className="flex justify-between">
-           <button onClick={()=>handeldelet(task._id)} className=" btn btn-outline mt-9 text-xl text-black w-[120px] "> Delete</button>
-
-    
-           </div>
-           </div>
-         </div>  )
-                }
-
-            </div>
-
-    // <div>
-    //   <div className="flex justify-evenly ">
-    //     <h2 className="text-xl">All Task </h2>
-    //     <h2 className="text-xl">Total Task: {task.length}</h2>
-    //   </div>
-    //   <div className="overflow-x-auto">
-    //     <table className="table table-zebra ">
-    //       {/* head */}
-    //       <thead>
-    //         <tr>
-    //           <th></th>
-    //           <th>title</th>
-    //           <th>Discription</th>
-    //           <th>deadlines</th>
-    //           <th> priority</th>
-    //           <th> Action</th>
-    //         </tr>
-    //       </thead>
-    //       <tbody>
-    //         {task.map((user, index) => (
-    //           <tr key={user._id}>
-    //             <th>{index + 1}</th>
-    //             <td>{user.title}</td>
-    //             <td>{user.deadlines}</td>
-    //             <td>{user.deadlines}</td>
-    //             <td>{user.priority}</td>
-    //             <td>
-    //             <button onClick={()=>handeldelet(task._id)} className=" btn btn-outline mt-9 text-xl text-black w-[120px] "> Delete</button>
-    //             </td>
-    //           </tr>
-    //         ))}
-    //       </tbody>
-    //     </table>
-    //   </div>
-    // </div>
   );
 };
 

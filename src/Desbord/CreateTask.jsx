@@ -122,19 +122,6 @@ const CreateTask = () => {
             </div>
 
             <div className="form-control w-1/2 ml-4 ">
-              {/* <label className="label">
-                <span className="label-text">Priority</span>
-              </label>
-              <label className="input-group">
-                <input
-                  type="text"
-                  placeholder="chose priority"
-                  name="priority"
-                  className="input input-bordered bg-white text-black w-full "
-                />
-              </label> */}
-
-
 
                               <label className="label">
                                 <span className="label-text text-white">
